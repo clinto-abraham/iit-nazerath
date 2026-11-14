@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fbf8f3;
+  --foreground: #1c1917;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Drifting Clouds & Sky Movement Keyframes */
+@keyframes driftCloudsSlow {
+  0% {
+    transform: translate3d(-10%, 0, 0);
+  }
+  50% {
+    transform: translate3d(8%, -2%, 0);
+  }
+  100% {
+    transform: translate3d(-10%, 0, 0);
+  }
+}
+
+@keyframes driftCloudsMedium {
+  0% {
+    transform: translate3d(12%, 0, 0);
+  }
+  50% {
+    transform: translate3d(-8%, 3%, 0);
+  }
+  100% {
+    transform: translate3d(12%, 0, 0);
+  }
+}
+
+@keyframes cloudPulse {
+  0%, 100% {
+    opacity: 0.55;
+    transform: scale(1);
+    filter: blur(55px);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.08) translateY(-10px);
+    filter: blur(70px);
+  }
+}
+
+@keyframes starTwinkle {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.35);
+  }
+}
+
+@keyframes textGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ATTENTION-DRAWING SEARCH SHAKE ANIMATION */
+@keyframes searchShake {
+  0% {
+    transform: translateX(0) scale(1);
+  }
+  15% {
+    transform: translateX(-7px) rotate(-0.8deg) scale(1.01);
+  }
+  30% {
+    transform: translateX(6px) rotate(0.8deg) scale(1.015);
+  }
+  45% {
+    transform: translateX(-5px) rotate(-0.5deg) scale(1.01);
+  }
+  60% {
+    transform: translateX(4px) rotate(0.4deg);
+  }
+  75% {
+    transform: translateX(-2px) rotate(-0.2deg);
+  }
+  100% {
+    transform: translateX(0) rotate(0deg) scale(1);
+  }
+}
+
+@keyframes highlightGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.4), 0 10px 25px -5px rgba(217, 119, 6, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba(234, 88, 12, 0.7), 0 15px 35px -5px rgba(234, 88, 12, 0.35);
+  }
+}
+
+.animate-drift-slow {
+  animation: driftCloudsSlow 35s ease-in-out infinite;
+}
+
+.animate-drift-medium {
+  animation: driftCloudsMedium 28s ease-in-out infinite;
+}
+
+.animate-cloud-pulse {
+  animation: cloudPulse 14s ease-in-out infinite;
+}
+
+.animate-star-twinkle {
+  animation: starTwinkle 4s ease-in-out infinite;
+}
+
+.animate-search-shake {
+  animation: searchShake 0.65s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+.animate-highlight-glow {
+  animation: highlightGlow 2.5s ease-in-out infinite;
+}
+
+.vibrant-gradient-text {
+  background: linear-gradient(135deg, #c2410c 0%, #ea580c 25%, #d97706 50%, #e11d48 75%, #b45309 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textGradient 10s ease infinite;
+}
+
+.vibrant-blue-amber-text {
+  background: linear-gradient(135deg, #b45309 0%, #d97706 40%, #0284c7 80%, #0369a1 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Warm Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f5f0e8;
+}
+::-webkit-scrollbar-thumb {
+  background: #d6cbbe;
+  border-radius: 4px;
+}
+
+/* Mobile-Friendly Warm Card */
+.warm-card {
+  background: rgba(255, 255, 255, 0.93);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(217, 119, 6, 0.15);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.warm-card:hover {
+  background: #ffffff;
+  border-color: rgba(234, 88, 12, 0.35);
+  box-shadow: 0 12px 30px -8px rgba(194, 65, 12, 0.1);
+}
